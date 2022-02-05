@@ -1,0 +1,13 @@
+//Pseudocode
+int X = x * x // 1 mult
+int sum = 0
+for (int i=n; i>=3; i-=2){
+  sum+=a_i // 1 addition
+      sum*=X // 1 mult
+}
+sum+=a_1 // 1 addition
+sum*=x // 1 mult
+return sum
+
+//(n+1)/2 additions, (n+3)/2 mults
+

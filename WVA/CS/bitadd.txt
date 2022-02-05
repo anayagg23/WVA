@@ -1,0 +1,20 @@
+bit left = 0
+bit carry = 0
+if (len(a)>len(b)){
+  for (int i=0; i<len(a)-len(b); i++){
+    b.push_front(0)
+  }
+}
+if (len(b)>len(a)){
+  for (int i=0; i<len(b)-len(a); i++){
+    a.push_front(0)
+  }
+}
+for (int i=0; i<n; i++){
+  left = carry XOR a_i XOR b_i
+  carry = ((carry+a_i+b_i)-left)/2
+  c.push_front(left)
+}
+c.push_front(carry)
+return c
+
