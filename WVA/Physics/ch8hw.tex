@@ -1,0 +1,105 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, bbm}
+\usepackage{booktabs, verbatim, graphicx, framed}
+\usepackage[sexy, hints]{evan}
+\title{Chapter 8 Homework}
+\author{Anay Aggarwal}
+
+\begin{document}
+
+\maketitle
+\begin{example}
+  Clay problem, part a.
+\end{example}
+\begin{soln}
+  To solve this problem, we need to know about conservation of
+  angular momentum. We need to know that $L=I\omega$, and we will
+  need to know that the moment of inertia of a solid disk is $\frac{1}{2}MR^2$,
+  where $M$ is the mass and $R$ is the radius (I proved this in the last homework).
+  \\ \\
+  Let $M$ be the mass of the potters wheel, $R$ be the radius of the potters wheel,
+  $m$ be the mass of the disk of clay, $r$ be the radius of the disk of clay. Let $\omega_i$
+  be the angular velocity of the wheel initially, and $\omega_f$ be the angular velocity of the
+  wheel finally.
+  \\ \\
+  The only force applied to the wheel is vertically downwards, so it doesn't effect
+  the disks spinning about the vertical axis, so there is no net torque. Hence, be conservation
+  of angular momentum,
+  $$\Delta L=\tau \cdot t = 0$$
+  $$L_i=L_f$$
+  $$I_i \omega_i = I_f \omega_f$$
+  $$\frac{1}{2}MR^2 \omega_i=I_f \omega_f$$
+  In order to compute $\omega_f$, it remains to compute $I_f$. Note that the final
+  moment of inertia is the initial moment plus the moment added on.
+  Since the clay added is a disk, the added moment of inertia is $\frac{1}{2}mr^2$.
+  Thus
+  $$\frac{1}{2}MR^2 \omega_i=\left(\frac12 MR^2+\frac12 mr^2\right)\omega_f$$
+  $$\omega_f=\omega_i\left(\frac{MR^2}{MR^2+mr^2}\right)$$
+  Which how fast the wheel is now spinning!
+  \\ \\
+  Some symbolic analysis: The units are correct since $\frac{MR^2}{MR^2+mr^2}$ is a
+  scalar (the numerator and the denominator are both $kg m^2$). If the clay disk is
+  almost nothing to the potters wheel, the final angular velocity will almost be
+  the same as the initial angular velocity, which makes sense.
+  \\ \\
+  Let's plug in the numbers:
+  $$\omega_f=(1.5 rev/s)\left(\frac{5(0.2)^2 kg m^2}{5(0.2)^2 + 3.1(0.04)^2 kg m^2}\right)$$
+  $$\omega_f\approx (1.5 rev/s)(0.98)=1.47 rev/s$$
+  This makes sense, it's just a little bit under the original velocity since the clay
+  is very little.
+\end{soln}
+\begin{example}
+  Clay problem, part b.
+\end{example}
+\begin{soln}
+  This problem is nearly analogous to the previous problem, except that the
+  final moment of inertia is different because the clay is a point mass and it is dropped at
+  the edge of the disk. Hence we will use everything the same in the previous solution,
+  up until we computed $I_f$. We have that
+  $$\frac{1}{2}MR^2 \omega_i=I_f \omega_f$$
+  Now, $I_f$ is the sum of the initial moment and the added moment, as before.
+  This time, the added moment is of a point mass, so it's moment is $mR^2$.
+  This is because it has a mass $m$ and is a distance $R$ (notice, big $R$ not small $r$)
+  away from the axis that it's rotating around. Thus
+  $$\frac{1}{2}MR^2 \omega_i=\left(\frac{1}{2}MR^2+mR^2\right)\omega_f$$
+  $$M \omega_i = (M+2m)\omega_f$$
+  $$\omega_f=\omega_i\left(\frac{M}{M+2m}\right)$$
+  Which is the answer!
+  \\ \\
+  Some symbolic check: the units are correct because $\frac{M}{M+2m}$ is a scalar,
+  since the denominator and numerator both have units $kg$. As $M$ is large compared to $m$,
+  $\omega_f$ becomes closer to $\omega_i$ as expected. As $m$ is large compared to $M$,
+  $\omega_f$ becomes far less than $\omega_i$, which makes sense. $R$ doesn't matter,
+  which makes sense because the clay is just a point mass.
+  \\ \\
+  Now to plug in the numbers:
+  $$\omega_f=(1.5 rev/s)\left(\frac{5 kg}{5kg+6.2kg}\right)\approx 0.67 rev/s$$
+  This makes sense because $\omega_f$ is significantly less than $\omega_i$, because the clay is heavy.
+\end{soln}
+\begin{example}
+  Clay problem, part c.
+\end{example}
+\begin{soln}
+  To solve this, we need to know that rotational energy is $\frac{1}{2}I\omega^2$.
+  Hence the change in rotational energy is
+  $$\frac{1}{2}I_f\omega_f^2-\frac{1}{2}I_i\omega_i^2$$
+  We can simply plug in $I_f, I_i, \omega_f, \omega_i$ for each case.
+  \\ \\
+  Case 1: Part a. We can use the values from part a to get:
+  $$\Delta \mathrm{RE}=\frac{1}{2}I_f\omega_f^2-\frac{1}{2}I_i\omega_i^2$$
+  $$\Delta \mathrm{RE}=0.5((0.102 kg m^2)(1.47 rev/s)^2-(0.1 kg m^2)(1.5 rev/s)^2)$$
+  $$\Delta \mathrm{RE}=-0.002 kg m^2 rev^2/s^2$$
+  Notice that we lost some energy! This is probably due to heat and sound.
+  The clay falling onto the wheel makes a sound and exerts a bit of heat, which
+  is where the energy is lost.
+  \\ \\
+  Case 2: Part b. We can use the values from part b to get:
+  $$\Delta \mathrm{RE}=\frac{1}{2}I_f \omega_f^2-\frac{1}{2}I_i\omega_i^2$$
+  $$\Delta \mathrm{RE}=\frac{1}{2}(0.162 kgm^2)(0.67 rev/s)^2-\frac{1}{2}(0.1 kgm^2)(1.5 rev/s)^2$$
+  $$\Delta \mathrm{RE}=-0.076 kg m^2 rev^2/s^2$$
+  We lost some energy here too, due to the same reasons as before. We lost
+  more energy here because the blob is now a point-mass so we lost more velocity
+  (as shown by the results in parts a and b).
+\end{soln}
+\end{document}

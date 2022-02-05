@@ -1,0 +1,138 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, bbm}
+\usepackage{booktabs, verbatim, graphicx, framed}
+\usepackage[sexy, hints]{evan}
+\title{Chapter 5/8 Homework}
+\author{Anay Aggarwal}
+
+\begin{document}
+
+\maketitle
+
+\begin{example}
+  [Context Rich Problem]
+  Pulleys
+\end{example}
+\begin{soln}
+  To solve this problem, we need to know how to balance forces and we need
+  the basics of torque and moments of inertia. Specifically,
+  $$\sum \tau = I\alpha$$
+  $$a=r\alpha$$
+  $$I=\int r^2\mathrm{dm}$$
+  where $\tau$ is the torque on an object, $I$ is the moment of inertia,
+  $\alpha$ is the angular acceleration, $a$ is the tangential acceleration,
+  $r$ is the radius, $m$ is the mass.
+  \\ \\
+  Our solution will look like this:
+  \begin{itemize}
+    \item Balance forces on $m_1$
+    \item Balance forces on $m_2$
+    \item Balance torques on the pulley
+    \item Combine all previous results to solve the problem
+  \end{itemize}
+  Balancing forces will be straightforward, as we will see soon. To balance torques on the pulley, we need to:
+  \begin{itemize}
+    \item Find all the torques on the pulley
+    \item Compute $I$
+    \item Use the previous information to compute $\alpha$
+    \item Use that information to compute $a$
+  \end{itemize}
+  Onto the process.
+  \\ \\
+  \textbf{Key piece of information: } The acceleration of each object is the same,
+  $a$. This is because they are all connected by a rope.
+  \\ \\
+  To balance forces on $m_1$ and $m_2$, we can use the following free-body diagrams:
+  \begin{center}
+    \includegraphics[scale=0.3]{ch58part1.png}
+  \end{center}
+  Balancing the forces in the y-direction on $m_1$, we have by Newton's second law that
+  $$T_1-m_1g=m_1 a~~~~(1)$$
+  Balancing for $m_2$, we have that
+  $$m_2g-T_2=m_2 a~~~~(2)$$
+  \\ \\
+  To balance torques on the pulley, we can use the following diagram:
+  \begin{center}
+    \includegraphics[scale=0.3]{Torques.png}
+  \end{center}
+  Notice that there are two torques on $m_3$. The torque due to $T_1$, and
+  the torque due to $T_2$. There is no torque due to gravity since the axis of rotation
+  is the center of mass of the pulley, which is where gravity acts on the pulley.
+  Let $r$ be the radius of the pulley. By Newton's second law for torques, we have that
+  $$\sum \tau = I\cdot -\alpha$$
+  $$T_1r-T_2r=I\cdot -\alpha~~~~(3)$$
+  \\ \\
+  In order to compute the moment of inertia of the pulley, we can use
+  $$I=\int r^2 \mathrm{dm}$$
+  Let the mass density of the pulley be $\lambda$ and $A$ be the area of the disk. Then
+  $$\lambda A=m_3$$
+  $$\lambda \mathrm{dA}=\mathrm{d}m_3$$
+  Let $r$ be the radius of the pulley. Then $A=\pi r^2$ so
+  $$dA=2\pi r\mathrm{dr}$$
+  Hence,
+  $$I=\int_0^R r^2\mathrm{d}m_3=\int_0^R r^2 \lambda \mathrm{dA}$$
+  $$I=\int_0^R r^2\lambda 2\pi r\mathrm{dr}$$
+  $$I=2\pi \lambda \int_0^R r^3\mathrm{dr}$$
+  $$I=2\pi \lambda \left(\frac{R^4}{4}-\frac{0^4}{4}\right)$$
+  $$I=2\pi \lambda \frac{R^4}{4}=\frac{R^4\pi \lambda}{2}$$
+  Where $R$ is the radius of the pulley (just so we don't mix it up with the variable being integrated).
+  Substituting $\lambda = \frac{m_3}{A}=\frac{m_3}{\pi R^2}$, we have
+  $$I=\frac{m_3R^2}{2}~~~~(4)$$
+  \\ \\
+  Combining equations $(3)$ and $(4)$, we have that
+  $$T_1r-T_2r=m_3 r^2\frac{-\alpha}{2}$$
+  (recall that we use $r$ and $R$ interchangeably). Cancelling a factor of $r$,
+  $$T_1-T_2=m_3 r\frac{-\alpha}{2}$$
+  Now, remember that the tangential acceleration of the pulley, which is the same $a$, is
+  equal to $r\alpha$. Therefore,
+  $$T_1-T_2= \frac{m_3 (-a)}{2}$$
+  $$T_2-T_1= \frac{m_3 a}{2}~~~~(5)$$
+  \\ \\
+  We can finally finish the problem off now. Using equations $(1), (2), (5)$, we have
+  $$T_1-m_1g=m_1a$$
+  $$m_2g-T_2=m_2a$$
+  $$T_2-T_1=\frac{m_3 a}{2}$$
+  We want to solve for $a$. We have three equations, and three unknowns ($T_1, T_2, a$).
+  Adding the three equations, we get
+  $$m_2g-m_1g=m_1a+m_2a+\frac{m_3 a}{2}$$
+  $$a=\frac{m_2g-m_1g}{m_1+m_2+\frac{m_3}{2}}$$
+  Which is the answer!
+  \\ \\
+  \textbf{Answer check: } Firstly, the units are clearly correct since
+  the units of the numerator is $N$ and the denominator is $kg$. Second,
+  in the limit that $m_3\to 0$ (the pulley is massless), we get
+  $$a=\frac{m_2g-m_1g}{m_1+m_2}$$
+  Which agrees with the result that we had when we did massless pulleys.
+  When $m_2$ is giant compared to everything else, we get $a\sim g$, which also makes sense
+  since the everything will essentially be freefall. This information suggest that
+  our answer is reasonable.
+\end{soln}
+\begin{example}
+  [Explanation Task]
+  Tracks
+\end{example}
+\begin{soln}
+  To solve this problem, we need to know the basic principles of circular motion.
+  Specifically, we will use that for an object in circular motion,
+  $$F=\frac{mv^2}{r}$$
+  where $F$ is the inward force on the object, $v$ is the tangential speed of the object, $m$
+  is the mass of the object, and $r$ is the radius of the circle.
+  \\ \\
+  In the case of this problem, the only inward force is the frictional force. Hence
+  $$F_{friction}=\frac{mv^2}{r}$$
+  I am assuming the cars have the same mass. This was not specified in the problem, but the problem
+  would be unsolvable without this (Since $F_{friction}\propto m$).
+  \\ \\
+  We can just plug into the formula. For the red car, we have
+  $$F_{red}=\frac{mv^2}{2}=0.5mv^2$$
+  For the white one,
+  $$F_{white}=\frac{m(1.5v)^2}{3}=0.75mv^2$$
+  For the green one,
+  $$F_{green}=\frac{m(2v)^2}{4}=mv^2$$
+  For the orange one,
+  $$F_{orange}=\frac{m(4v)^2}{5}=3.2mv^2$$
+  Hence, since $mv^2$ is a positive quantity,
+  $$\boxed{F_{red}<F_{white}<F_{green}<F_{orange}}$$
+\end{soln}
+\end{document}

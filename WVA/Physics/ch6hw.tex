@@ -1,0 +1,50 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, bbm}
+\usepackage{booktabs, verbatim, graphicx, framed}
+\usepackage[sexy, hints]{evan}
+\title{Chapter 6 Homework}
+\author{Anay Aggarwal}
+
+\begin{document}
+
+\maketitle
+\begin{example}
+  [Context Rich Problem]
+  Moving stuff across a pond.
+\end{example}
+\begin{soln}
+  To solve this problem, we need to know about work and energy. Specifically,
+  $$W_{net}=\Delta E$$
+  $$K=\frac12 mv^2$$
+  $$W=F\cdot x$$
+  The diagram is as follows:
+  \begin{center}\includegraphics[scale=0.3]{Work.png}\end{center}
+  The system is the rock and the pond. Notice that at the beginning, there is zero kinetic energy since the object is at rest, and zero potential energy.
+  At the end, there is only kinetic energy (potential energy is in the wrong direction), so the total energy is $\frac{1}{2}mv_{final}^2$. Hence $\Delta E=\frac{1}{2}mv_f^2$. Noting that
+  $$W_{net}=\Delta E$$
+  we can compute $\Delta E$, and, in turn, $v_f$, if we can compute $W_{net}$. Notice that
+  $$W_{net}=\sum W=\sum F\cdot x$$
+  Which is known. Hence
+  $$\frac{1}{2}mv_f^2=\sum F\cdot x$$
+  $$v_f=\sqrt{\frac{2\sum F\cdot x}{m}}$$
+  Before plugging in $F_1=200N, x_1=12m, F_2=500N, x_2=12m, m=150kg$, we can do some sense-making. Notice that the units of $v_f$ are
+  $$\sqrt{\frac{kg\frac{m^2}{s^2}}{kg}}=\frac{m}{s}$$
+  Which makes sense. Additionally, when $m$ gets large, $v_f$ gets small, which also makes sense. Plugging in, we get
+  $$v_f=\sqrt{\frac{2\cdot (200\cdot 12+500\cdot 12)}{150 kg}}=\sqrt{\frac{16800}{150}}\approx 10.58 m/s$$
+  Which also makes sense.
+\end{soln}
+\begin{example}
+  [Explanation Task]
+  Ranking Work
+\end{example}
+\begin{soln}
+  Suppose pushing a block of mass $m$ with a force $F_0$ on the time interval $[t_1,t_2]$
+  pushes it a distance $d_0$. Then the total work on each block in experiment
+  $1$ is $F_0\cdot d_0$. So the total work is $2F_0\cdot d_0$. This is the same in experiment two (since work is force \textit{dotted} with distance)
+  In experiment 3, the distance will be a bit less than $d_0$ so the work will be a bit less than $2F_0\cdot d_0$, but still positive.
+  In experiment 4, the distance for the right block will be larger than $d_0$, so the total work will be larger than $2F_0\cdot d_0$.
+  In experiment 5, the blocks won't move so zero net work will be done. Hence:
+  $$\exp 5<\exp 3<\exp 1=\exp 2<\exp 4$$
+\end{soln}
+\end{document}

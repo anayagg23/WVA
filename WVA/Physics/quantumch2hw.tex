@@ -1,0 +1,51 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, bbm}
+\usepackage{booktabs, verbatim, graphicx, framed, braket}
+\usepackage[sexy, hints]{evan}
+\title{Quantum Chapter 2}
+\author{Anay Aggarwal}
+
+\begin{document}
+
+\maketitle
+\begin{example}
+  [2.16]
+  Quantum state given in $y$-direction.
+\end{example}
+\begin{soln}
+  a. We first switch the basis to the $z$-direction using the basis switch equation.
+  We have that:
+  $$\Ket{\psi}=\frac{2}{\sqrt{29}}\left(\frac{1}{2}\Ket{1}+\frac{i}{\sqrt{2}}\Ket{0}-\frac{1}{2}\Ket{-1}\right)+\frac{3i}{\sqrt{29}}\left(\frac{1}{\sqrt{2}}\Ket{1}+\frac{1}{\sqrt{2}}\Ket{-1}\right)-\frac{4}{\sqrt{29}}\left(\frac{1}{2}\Ket{1}-\frac{i}{\sqrt{2}}\Ket{0}-\frac{1}{2}\Ket{-1}\right)$$
+  Using the equations on the sheet and the given equation in the problem. This reduces to:
+  $$\Ket{\psi}=\frac{3i-\sqrt{2}}{\sqrt{58}}\Ket{1}+\frac{6i}{\sqrt{58}}\Ket{0}+\frac{3i+\sqrt{2}}{\sqrt{58}}\Ket{-1}$$
+  Hence we can measure a z-spin of $\hbar$ with probability $\left|\left(\frac{3i-\sqrt{2}}{\sqrt{58}}\right)^2\right|=\frac{11}{58}$.
+  We can measure a z-spin of $0$ with probability $\left|\left(\frac{6i}{\sqrt{58}}\right)^2\right|=\frac{36}{58}$.
+  Finally,  we can measure a z-spin of $-\hbar$ with probability $\frac{11}{58}$.
+  \\ \\
+  b. We simply square the components of the y-spin of $\Ket{\psi}$ in the y-basis set. We can measure $\hbar$ with probability $\frac{4}{29}$, $0$ with probability $\frac{9}{29}$,
+  and $-1$ with probability $\frac{16}{29}$.
+  \\ \\
+  c. The histograms are as follows:
+  \begin{center}\includegraphics[scale=0.4]{histograms.png}\end{center}
+  The expected value for part a) is simply $0$ because it's evenly distributed about $0$. The expected value for part b) can be calculated as:
+  $$\frac{4}{29}\hbar-\frac{16}{29}\hbar=-\frac{14}{29}\hbar$$.
+\end{soln}
+\begin{example}
+  [2.17]
+  Quantum state of spin-1 particle
+\end{example}
+\begin{soln}
+  a. We can rewrite $\psi$ as:
+  $$\Ket{\psi}=\frac{1}{\sqrt{30}}\Ket{1}+\frac{2}{\sqrt{30}}\Ket{0}+\frac{5i}{\sqrt{30}}\Ket{-1}$$
+  Hence the probability we get $\hbar$ is $\frac{1}{30}$, the probability we get $0$ is $\frac{4}{30}=\frac{2}{15}$, the probability we get $-\hbar$ is $\frac{25}{30}=\frac{5}{6}$.
+  Hence the expected value is $\frac{\hbar}{30}-\frac{25\hbar}{30}=-\frac{24\hbar}{30}=-\frac{2\hbar}{5}$
+  \\ \\
+  b. We can use that
+  $$\langle S_x\rangle=\langle\psi\vert S_x\vert \psi \rangle$$
+  $$=\frac{\hbar}{30\sqrt{2}}\begin{pmatrix}1 & 2 & -5i\end{pmatrix}\begin{pmatrix}0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0\end{pmatrix}\begin{pmatrix}1 \\ 2 \\ 5i\end{pmatrix}$$
+  $$=\frac{\hbar}{30\sqrt{2}}\begin{pmatrix}2 & 1-5i & 2\end{pmatrix}\begin{pmatrix} 1 \\ 2 \\ 5i\end{pmatrix}$$
+  $$=\frac{4\hbar}{30\sqrt{2}}$$
+  $$=\frac{\hbar\sqrt{2}}{15}$$
+\end{soln}
+\end{document}
